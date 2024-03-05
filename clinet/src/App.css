@@ -1,0 +1,51 @@
+.light_theme{
+  --text-clr:black;
+  --bg-color: white;
+  --button-clr:rgb(83, 83, 159);
+  --button-bg-color:black;
+}
+.dark_theme{
+  --text-clr:white;
+  --bg-color: black;
+  --button-clr:rgb(83, 83, 159);
+  --button-bg-color:white;
+}
+
+/* 
+.multi-email-input {
+  width: 300px;
+}
+
+.email-pills {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.email-pill {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 3px 8px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.email-pill span {
+  margin-right: 5px;
+}
+
+.email-pill button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+}
+
+input[type='text'] {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  padding: 5px;
+} */
