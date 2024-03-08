@@ -18,19 +18,20 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const [imageFile, setImageFile] = useState();
 
-  const schema = yup.object({
+  const validationShape = {
     email: yup.string().email().required(),
     password: yup.string().min(3).required("Password  is required"),
-  });
-  // if (!isLogin) {
-  //   schema.name = yup.string().required("name is required");
-  //   schema.confirmPassword = yup
-  //     .string()
-  //     .required("Confirm Password is required");
-  // }
+  }
+  if (!isLogin) {
+    validationShape.name = yup.string().min(2).required("name is required");
+    validationShape.confirmPassword = yup
+      .string()
+      .oneOf([yup.ref("password"),null],"Confirm Password is must same as password")
+  }
 
-  // const schema = yup.object(validationShape);
+  const schema = yup.object().shape(validationShape);
 
   const init = {
     name: "",
@@ -59,6 +60,10 @@ const Login = () => {
   };
   console.log(errors, "error");
   return (
+    <div style={{
+      backgroundImage:"linear-gradient(rgba(200,0,0,0.5),rgba(120,110,220,0.5))"
+      }}
+      >
     <Container
       maxWidth="xs"
       sx={{
@@ -154,7 +159,9 @@ const Login = () => {
           </>
         ) : (
           <>
-            <Typography variant="h5" className="mb-3">Sign up</Typography>
+            <Typography variant="h5" className="mb-3">
+              Sign up
+            </Typography>
             <form style={{ width: "100%" }} onSubmit={handleSubmit(onSubmit)}>
               <Stack position={"relative"} width={"10rem"} margin={"auto"}>
                 <Avatar
@@ -163,13 +170,32 @@ const Login = () => {
                     height: "10rem",
                     objectFit: "contain",
                   }}
+                  src={imageFile}
                 />
-                <IconButton sx={{ position: "absolute", right: 0, bottom: 0 }}>
+                <IconButton sx={{ position: "absolute", right: 0, bottom: 0,
+                background:"black",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                color:"white",
+                padding: 0.5,
+                ":hover":{
+                  background:"black",
+                }
+                 }}>
                   <>
-                    <label htmlFor="file-input">
+                    <span htmlFor="file-input" >
                       <CameraAltIcon />
-                      <VisuallyHidden type="file" id="file-input" />
-                    </label>
+                      <VisuallyHidden
+                        type="file"
+                        id="file-input"
+                        data-max-size="1029" //sizein Byte
+                        onChange={(e) =>{
+                          console.log(e,"========eee>",e.target.files);
+                          setImageFile(URL.createObjectURL(e.target.files[0]))
+                        }}
+                      />
+                    </span>
                   </>
                 </IconButton>
               </Stack>
@@ -256,18 +282,17 @@ const Login = () => {
                 </span>
               )}
               <Button
-                className="mt-1"
                 variant="contained"
                 color="primary"
                 fullWidth
                 type="submit"
+                style={{margin:"1rem 0"}}
               >
                 Submit
               </Button>
               <Typography
-                className="mt-5"
                 textAlign="center"
-                style={{ fontSize: "0.8rem", marginTop: "0.8rem" }}
+                style={{ fontSize: "0.8rem" }}
               >
                 Or
               </Typography>
@@ -287,6 +312,7 @@ const Login = () => {
         )}
       </Paper>
     </Container>
+    </div>
   );
 };
 
