@@ -11,6 +11,11 @@
   --button-bg-color:white;
 }
 
+h1{
+  color:var(--text-clr)
+}
+
+
 /* 
 .multi-email-input {
   width: 300px;
