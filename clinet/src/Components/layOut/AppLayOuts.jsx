@@ -27,7 +27,7 @@ const AppLayOuts = () => (WrappedComponent) => {
             md={5}
             lg={6}
             height={"100%"}
-            bgcolor="primary.main"
+            // bgcolor="primary.main"
           >
             <WrappedComponent {...props} />
           </Grid>
@@ -36,8 +36,8 @@ const AppLayOuts = () => (WrappedComponent) => {
             md={4}
             lg={3}
             height={"100%"}
-            sx={{ display: { xs: "none",md:"block" },background: "yellow"}}
-            bgcolor="#0000"
+            sx={{ display: { xs: "none", md: "block" } }}
+            bgcolor="rgba(0,0,0,0.5)"
           >
             third
           </Grid>

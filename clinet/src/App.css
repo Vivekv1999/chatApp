@@ -11,10 +11,19 @@
   --button-bg-color:white;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 h1{
   color:var(--text-clr)
 }
 
+.themeBgColor{
+  background-color: var(--bg-color);
+}
 
 /* 
 .multi-email-input {

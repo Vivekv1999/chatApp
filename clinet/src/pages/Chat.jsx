@@ -1,10 +1,10 @@
-import React from 'react'
+// import React from 'react'
 import AppLayOuts from '../Components/layOut/AppLayOuts'
 
 const Chat = () => {
   return (
     <div>
-      chat section
+     chat section
     </div>
   )
 }
