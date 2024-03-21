@@ -19,6 +19,7 @@ module.exports = {
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
+      { "varsIgnorePattern": "VARIABLE_NAME"} //for remove-->Undeclare variable error messages(red color)
     ],
   },
 };
