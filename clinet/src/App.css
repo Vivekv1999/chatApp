@@ -25,6 +25,10 @@ h1{
   background-color: var(--bg-color);
 }
 
+p{
+  color:var(--bg-color)
+}
+
 /* 
 .multi-email-input {
   width: 300px;
