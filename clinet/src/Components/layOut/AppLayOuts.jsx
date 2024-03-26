@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import React from "react";
 import Header from "./Header";
 import Title from "../shared/Title";
+import ChatList from "../Specific/ChatList";
 
 const AppLayOuts = () => (WrappedComponent) => {
   // eslint-disable-next-line react/display-name
@@ -18,7 +19,7 @@ const AppLayOuts = () => (WrappedComponent) => {
             sx={{ display: { xs: "none", sm: "block" } }}
             height={"100%"}
           >
-            first
+            <ChatList chats={[1,2,3,4,5]}/>
           </Grid>
           <Grid
             item
