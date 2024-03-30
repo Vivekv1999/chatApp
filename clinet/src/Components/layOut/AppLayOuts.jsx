@@ -3,6 +3,7 @@ import React from "react";
 import Header from "./Header";
 import Title from "../shared/Title";
 import ChatList from "../Specific/ChatList";
+import { samplesChats } from "../../constants/sampleData";
 
 const AppLayOuts = () => (WrappedComponent) => {
   // eslint-disable-next-line react/display-name
@@ -19,7 +20,14 @@ const AppLayOuts = () => (WrappedComponent) => {
             sx={{ display: { xs: "none", sm: "block" } }}
             height={"100%"}
           >
-            <ChatList chats={[1,2,3,4,5]}/>
+            <ChatList 
+            chats={samplesChats} 
+            chatId={"1"}
+            newMessagesAlert={[{
+              chatId: "1",
+              count:4
+            }]}
+            />
           </Grid>
           <Grid
             item

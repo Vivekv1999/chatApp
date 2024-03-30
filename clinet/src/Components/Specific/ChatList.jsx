@@ -1,5 +1,6 @@
 import { Stack } from "@mui/material";
 import React from "react";
+import ChatItem from "../shared/ChatItem";
 
 const ChatList = ({
   w = "100%",
@@ -8,16 +9,35 @@ const ChatList = ({
   onlineUsers = [],
   newMessagesAlert = [
     {
-      chatIs: "",
+      chatId: "",
       count: 0,
     },
   ],
-  handleDeleteChat,
+  handleDeleteChatOpen,
 }) => {
   return (
     <Stack width={w} direction={"column"}>
       {chats?.map((data) => {
-        return <div>{data}</div>;
+        const { avatar, _id, name, groupChat, members } = data;
+
+        const newMessagesAlert = newMessagesAlert.find(
+          (child) => child === _id
+        );
+
+        const isOnline=members?.some((member)=>onlineUsers.includes(_id))
+
+        return (
+        <ChatItem 
+        newMessagesAlert={newMessagesAlert}
+        isOnline={isOnline}
+        avatar={avatar}
+        name={name}
+        gropupChats={gropupChats}
+        sameSender={chatId===_id}
+        _id={_id}
+        handleDeleteChatOpen={handleDeleteChatOpen}
+        />
+        )
       })}
     </Stack>
   );
