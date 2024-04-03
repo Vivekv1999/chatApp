@@ -4,10 +4,18 @@ import Header from "./Header";
 import Title from "../shared/Title";
 import ChatList from "../Specific/ChatList";
 import { samplesChats } from "../../constants/sampleData";
+import { useParams } from "react-router-dom";
 
 const AppLayOuts = () => (WrappedComponent) => {
   // eslint-disable-next-line react/display-name
   return (props) => {
+
+    const params=useParams()
+    const chatId=params.chatId
+
+    const handleDeleteChat=(e,_id,gropupChat) => {
+      console.log("delete chat");
+    }
     return (
       <>
         <Title />
@@ -20,13 +28,16 @@ const AppLayOuts = () => (WrappedComponent) => {
             sx={{ display: { xs: "none", sm: "block" } }}
             height={"100%"}
           >
-            <ChatList 
-            chats={samplesChats} 
-            chatId={"1"}
-            newMessagesAlert={[{
-              chatId: "1",
-              count:4
-            }]}
+            <ChatList
+              chats={samplesChats}
+              chatId={chatId}
+              newMessagesAlert={[
+                {
+                  chatId: chatId,
+                  count: 4,
+                },
+              ]}
+              handleDeleteChat={handleDeleteChat}
             />
           </Grid>
           <Grid

@@ -13,31 +13,33 @@ const ChatList = ({
       count: 0,
     },
   ],
-  handleDeleteChatOpen,
+  handleDeleteChat,
 }) => {
   return (
     <Stack width={w} direction={"column"}>
-      {chats?.map((data) => {
+      {chats?.map((data, index) => {
         const { avatar, _id, name, groupChat, members } = data;
 
-        const newMessagesAlert = newMessagesAlert.find(
+        const newMessagesAlertData = newMessagesAlert.find(
           (child) => child === _id
         );
 
-        const isOnline=members?.some((member)=>onlineUsers.includes(_id))
+        const isOnline = members?.some((member) => onlineUsers.includes(_id));
 
         return (
-        <ChatItem 
-        newMessagesAlert={newMessagesAlert}
-        isOnline={isOnline}
-        avatar={avatar}
-        name={name}
-        gropupChats={gropupChats}
-        sameSender={chatId===_id}
-        _id={_id}
-        handleDeleteChatOpen={handleDeleteChatOpen}
-        />
-        )
+          <ChatItem
+            index={index}
+            newMessagesAlert={newMessagesAlertData}
+            isOnline={isOnline}
+            avatar={avatar}
+            name={name}
+            gropupChat={groupChat}
+            sameSender={chatId === _id}
+            _id={_id}
+            key={_id}
+            handleDeleteChat={handleDeleteChat}
+          />
+        );
       })}
     </Stack>
   );
