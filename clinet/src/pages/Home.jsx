@@ -1,4 +1,5 @@
 import React from 'react'
+import AppLayOuts from '../Components/layOut/AppLayOuts'
 
 const Home = () => {
 
@@ -9,4 +10,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default AppLayOuts()(Home)

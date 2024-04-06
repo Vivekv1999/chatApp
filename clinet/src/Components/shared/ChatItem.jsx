@@ -3,19 +3,22 @@ import React, { memo } from "react";
 import { Link } from "react-router-dom";
 
 const ChatItem = ({
+  index,
+  newMessageAlerrt,
+  isOnline,
   avatar = [],
   name,
-  _id,
   gropupChat,
   sameSender,
-  newMessageAlerrt,
-  index,
+  _id,
+  key,
   handleDeleteChat,
-  isOnline
 }) => {
   return (
     <>
-      <Link to={`/chat/${_id}`} onContextMenu={(e)=> handleDeleteChat(e,_id,gropupChat)}/>
+      <Link
+      sx={{padding:0}}
+       to={`/chat/${_id}`} onContextMenu={(e)=> handleDeleteChat(e,_id,gropupChat)}/>
       <div
         style={{
           display: "flex",
@@ -23,7 +26,6 @@ const ChatItem = ({
           padding: "1rem",
           backgroundColor: sameSender ? "black" : "unset",
           color: sameSender ? "white" : "unset",
-          justifyContent: "center",
           gap: "1rem",
           position: "relative",
         }}
@@ -33,7 +35,7 @@ const ChatItem = ({
         {newMessageAlerrt && (
           <Typography>{newMessageAlerrt.count} New Message</Typography>
         )}
-        {isOnline &&(
+        {(
           <Box sx={{
             width:"10px",
             height: "10px",
@@ -43,7 +45,6 @@ const ChatItem = ({
             right: "1rem",
             transform: "translateY(-50%)",
           }}>
-
           </Box>
         )}
       </div>
