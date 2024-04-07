@@ -21,24 +21,26 @@ const ChatList = ({
         const { avatar, _id, name, groupChat, members } = data;
 
         const newMessagesAlertData = newMessagesAlert.find(
-          (child) => child === _id
+          (child) => child.chatId === _id
         );
 
         const isOnline = members?.some((member) => onlineUsers.includes(_id));
 
         return (
-          <ChatItem
-            index={index}
-            newMessagesAlert={newMessagesAlertData}
-            isOnline={isOnline}
-            avatar={avatar}
-            name={name}
-            gropupChat={groupChat}
-            sameSender={chatId === _id}
-            _id={_id}
-            key={_id}
-            handleDeleteChat={handleDeleteChat}
-          />
+          <React.Fragment key={index}>
+            <ChatItem
+              index={index}
+              newMessagesAlert={newMessagesAlertData}
+              isOnline={isOnline}
+              avatar={avatar}
+              name={name}
+              gropupChat={groupChat}
+              sameSender={chatId === _id}
+              _id={_id}
+              // key={_id}
+              handleDeleteChat={handleDeleteChat}
+            />
+          </React.Fragment>
         );
       })}
     </Stack>

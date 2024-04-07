@@ -16,8 +16,9 @@ const AppLayOuts = () => (WrappedComponent) => {
     const handleDeleteChat=(e,_id,gropupChat) => {
       console.log("delete chat");
     }
+
     return (
-      <>
+      <> 
         <Title />
         <Header />
         <Grid container height={"calc(100vh - 4rem)"}>
@@ -31,13 +32,9 @@ const AppLayOuts = () => (WrappedComponent) => {
             <ChatList
               chats={samplesChats}
               chatId={chatId}
-              newMessagesAlert={[
-                {
-                  chatId: chatId,
-                  count: 4,
-                },
-              ]}
+              newMessagesAlert={[]}
               handleDeleteChat={handleDeleteChat}
+              onlineUsers={[]}
             />
           </Grid>
           <Grid
