@@ -5,6 +5,7 @@ import Title from "../shared/Title";
 import ChatList from "../Specific/ChatList";
 import { samplesChats } from "../../constants/sampleData";
 import { useParams } from "react-router-dom";
+import Profile from "../Specific/Profile";
 
 const AppLayOuts = () => (WrappedComponent) => {
   // eslint-disable-next-line react/display-name
@@ -56,7 +57,7 @@ const AppLayOuts = () => (WrappedComponent) => {
             sx={{ display: { xs: "none", md: "block" } }}
             bgcolor="rgba(0,0,0,0.5)"
           >
-            third
+            <Profile/>
           </Grid>
         </Grid>
       </>
