@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Suspense, lazy } from "react";
@@ -18,8 +19,7 @@ function App() {
           <Routes>
             <Route element={<ProtectedRoute user={user} />}>
               <Route path="/" element={<Home />} />
-              <Route path="/chat" element={<Chat />} />
-              <Route path="/chat/:chatId" element={<Chat />} />
+              <Route path="/chat/:chatId?" element={<Chat />} />
               <Route path="/groups" element={<Groups />} />
             </Route>
             <Route
