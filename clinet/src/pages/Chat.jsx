@@ -9,7 +9,14 @@ import {
   AttachFile as AttachFileIcon 
 } from "@mui/icons-material";
 import FileMenu from "../Components/dialogs/FileMenu";
+import { sampleMessages } from "../constants/sampleData";
+import MessageComponent from "../Components/shared/MessageComponent";
 
+
+const user={
+  _id:"asdfghj",
+  name:"Nil"
+}
 const Chat = () => {
   const containerRef = useRef();
 
@@ -23,7 +30,14 @@ const Chat = () => {
         ref={containerRef}
         height={"90%"}
         sx={{ overflowX: "hidden", overflowY: "auto" }}
-      ></Stack>
+      >
+
+{sampleMessages.map((i,index)=>(
+  <MessageComponent key={i+index} user={user} message={i}/>
+))}
+
+
+      </Stack>
 
       <form
         style={{

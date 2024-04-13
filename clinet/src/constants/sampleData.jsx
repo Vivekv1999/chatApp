@@ -49,3 +49,32 @@ export const sampleNotifications = [
     _id: "2",
   },
 ];
+export const sampleMessages = [
+  {
+    attachments: [],
+    content: "message from person 1",
+    _id: "djjeskjdkkd",
+    sender: {
+      _id: "ersfdsfd",
+      name: "Chaman",
+    },
+    chat: "chatId",
+    createdAt: "2024-02-12T10:41:30.630Z",
+  },
+  {
+    attachments: [
+      {
+        public_id: "qwerror 2",
+        url: "https://www.w3schools.com/howto/img_avatar.png",
+      },
+    ],
+    content: "message from person 2",
+    _id: "djjeskjdkkd",
+    sender: {
+      _id: "asdfghj",
+      name: "Chaman",
+    },
+    chat: "chatId",
+    createdAt: "2024-03-12T10:41:30.630Z",
+  },
+];

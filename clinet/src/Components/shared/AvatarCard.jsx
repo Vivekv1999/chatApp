@@ -1,5 +1,7 @@
+// @ts-nocheck
 import React from 'react'
 import { Box, Stack, AvatarGroup,Avatar } from "@mui/material";
+import { transfromImage } from '../../lib/features';
 
 
 const AvatarCard = ({avatar=[],max=4}) => {
@@ -11,7 +13,7 @@ const AvatarCard = ({avatar=[],max=4}) => {
                 {avatar.map((i,index)=>(
                     <Avatar 
                     key={index}
-                    src={i}
+                    src={transfromImage(i)}
                     alt={`Avatar ${index}`}
                     sx={{
                         width: "3rem",
