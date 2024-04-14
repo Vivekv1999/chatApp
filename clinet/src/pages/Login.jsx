@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
 import {
@@ -15,6 +16,7 @@ import { VisuallyHidden } from "../Components/styles/StyledComponent";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { bgGradient } from "../constants/constants";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -61,7 +63,7 @@ const Login = () => {
   console.log(errors, "error");
   return (
     <div style={{
-      backgroundImage:"linear-gradient(rgba(200,0,0,0.5),rgba(120,110,220,0.5))"
+      backgroundImage:bgGradient
       }}
       >
     <Container

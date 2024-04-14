@@ -7,7 +7,9 @@ import { transfromImage } from '../../lib/features';
 const AvatarCard = ({avatar=[],max=4}) => {
   return (
     <Stack diretion={"row"} specing={0.5}>
-        <AvatarGroup max={max}>
+        <AvatarGroup max={max} sx={{
+            position:"relative"
+        }}>
             <Box width={"5rem"} height={"3rem"}>
 
                 {avatar.map((i,index)=>(

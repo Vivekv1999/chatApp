@@ -15,7 +15,7 @@ export const samplesChats = [
     _id: "2",
     groupChat: false,
     members: ["1", "2"],
-  },
+  }
 ];
 
 export const sampleUsers = [
