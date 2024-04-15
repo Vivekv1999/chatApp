@@ -9,6 +9,8 @@ const Login = lazy(() => import("./pages/Login"));
 const Chat = lazy(() => import("./pages/Chat"));
 const Groups = lazy(() => import("./pages/Groups"));
 const Page404 = lazy(() => import("./pages/PageNotFound"));
+const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
 
 function App() {
   const user = true;
@@ -30,6 +32,8 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </Suspense>
