@@ -56,9 +56,9 @@ const Dashboard = () => {
       alignItems={"center"}
       margin={"2rem 0"}
     >
-      <Widget title={"Users"} value={28} Icon={<PersonIcon/>} />
-      <Widget title={"Chats"} value={4} Icon={<GroupIcon/>} />
-      <Widget title={"Messages"} value={494} Icon={<MessageIcon/>} />
+      <Widget title={"Users"} value={28} Icon={<PersonIcon />} />
+      <Widget title={"Chats"} value={4} Icon={<GroupIcon />} />
+      <Widget title={"Messages"} value={494} Icon={<MessageIcon />} />
     </Stack>
   );
 
@@ -67,21 +67,32 @@ const Dashboard = () => {
       <Container component={"main"}>
         <Appbar />
 
-        <Stack direction={"row"} spacing={"2rem"} flexGrow={"wrap"}>
+        <Stack direction={{
+          lg:"row",
+          xs:'column',
+        }}
+         flexGrow={"wrap"}
+         sx={{gap:"2rem"}}
+         alignItems={{
+          xs:'center',
+          lg:'stretch'
+         }}
+        justifyContent={"center"}
+        >
           <Paper
             elevation={3}
             sx={{
-              padding: "2rem 3.5rem",
+              padding: "1.4rem 1rem",
               borderRadius: "1rem",
               width: "100%",
               maxWidth: "45rem",
-              height: "25rem",
+              // height: "25rem",
             }}
           >
             <Typography margin={"2rem 0"} color={textColorBlack} variant="h4">
               Last Messages
             </Typography>
-         <LineChart/>
+            <LineChart value={[1, 45, 33, 54, 48]} />
           </Paper>
           <Paper
             elevation={3}
@@ -93,12 +104,15 @@ const Dashboard = () => {
               alignItems: "center",
               width: { xs: "100%", sm: "50%" },
               position: "relative",
-              width:"100%",
+              width: "100%",
               maxWidth: "25rem",
-              height: "25rem",
+              // height: "25rem",
             }}
           >
-            <DoughnuCharts/>
+            <DoughnuCharts
+              labels={["Single Chats", "Group Chats"]}
+              value={[23, 71]}
+            />
 
             <Stack
               position={"absolute"}
